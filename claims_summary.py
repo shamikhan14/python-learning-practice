@@ -21,12 +21,16 @@ def summarize_claims(claims):
             rejected_count = rejected_count + 1
             rejected_total = rejected_total + claim["amount"]
 
-    print("Approved claim count:", approved_count)
-    print("Approved total amount:", approved_total)
-    print("Pending claim count:", pending_count)
-    print("Pending total amount:", pending_total)
-    print("Rejected claim count:", rejected_count)
-    print("Rejected total amount:", rejected_total)
+    summary = {
+        "approved_count": approved_count,
+        "approved_total": approved_total,
+        "pending_count": pending_count,
+        "pending_total": pending_total,
+        "rejected_count": rejected_count,
+        "rejected_total": rejected_total
+    }
+
+    return summary
 
 
 claims = [
@@ -37,4 +41,11 @@ claims = [
     {"claim_id": "C005", "amount": 50000, "status": "rejected"}
 ]
 
-summarize_claims(claims)
+result = summarize_claims(claims)
+
+print("Approved claim count:", result["approved_count"])
+print("Approved total amount:", result["approved_total"])
+print("Pending claim count:", result["pending_count"])
+print("Pending total amount:", result["pending_total"])
+print("Rejected claim count:", result["rejected_count"])
+print("Rejected total amount:", result["rejected_total"])
