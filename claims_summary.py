@@ -5,13 +5,22 @@ claims = [
     {"claim_id": "C004", "amount": 90000, "status": "pending"}
 ]
 
+approved_count = 0
+approved_total = 0
+
 pending_count = 0
 pending_total = 0
 
 for claim in claims:
-    if claim["status"] == "pending":
+    if claim["status"] == "approved":
+        approved_count = approved_count + 1
+        approved_total = approved_total + claim["amount"]
+
+    elif claim["status"] == "pending":
         pending_count = pending_count + 1
         pending_total = pending_total + claim["amount"]
 
+print("Approved claim count:", approved_count)
+print("Approved total amount:", approved_total)
 print("Pending claim count:", pending_count)
-print("Pending total amount:", pending_total)        
+print("Pending total amount:", pending_total)
