@@ -22,7 +22,8 @@ claims = [
     {"claim_id": "C002", "amount": 70000, "status": "pending"},
     {"claim_id": "C003", "amount": 10000, "status": "approved"},
     {"claim_id": "C004", "amount": 90000, "status": "pending"},
-    {"claim_id": "C005", "amount": 50000, "status": "rejected"}
+    {"claim_id": "C005", "amount": 50000, "status": "rejected"},
+    {"claim_id": "C006", "amount": 30000, "status": "cancelled"}
 ]
 
 result = summarize_claims(claims)
