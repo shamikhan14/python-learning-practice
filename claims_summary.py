@@ -1,34 +1,18 @@
 def summarize_claims(claims):
-    approved_count = 0
-    approved_total = 0
-
-    pending_count = 0
-    pending_total = 0
-
-    rejected_count = 0
-    rejected_total = 0
+    summary = {}
 
     for claim in claims:
-        if claim["status"] == "approved":
-            approved_count = approved_count + 1
-            approved_total = approved_total + claim["amount"]
+        status = claim["status"]
+        amount = claim["amount"]
 
-        elif claim["status"] == "pending":
-            pending_count = pending_count + 1
-            pending_total = pending_total + claim["amount"]
+        if status not in summary:
+            summary[status] = {
+                "count": 0,
+                "total": 0
+            }
 
-        elif claim["status"] == "rejected":
-            rejected_count = rejected_count + 1
-            rejected_total = rejected_total + claim["amount"]
-
-    summary = {
-        "approved_count": approved_count,
-        "approved_total": approved_total,
-        "pending_count": pending_count,
-        "pending_total": pending_total,
-        "rejected_count": rejected_count,
-        "rejected_total": rejected_total
-    }
+        summary[status]["count"] = summary[status]["count"] + 1
+        summary[status]["total"] = summary[status]["total"] + amount
 
     return summary
 
@@ -43,9 +27,6 @@ claims = [
 
 result = summarize_claims(claims)
 
-print("Approved claim count:", result["approved_count"])
-print("Approved total amount:", result["approved_total"])
-print("Pending claim count:", result["pending_count"])
-print("Pending total amount:", result["pending_total"])
-print("Rejected claim count:", result["rejected_count"])
-print("Rejected total amount:", result["rejected_total"])
+for status, data in result.items():
+    print(status, "claim count:", data["count"])
+    print(status, "total amount:", data["total"])
