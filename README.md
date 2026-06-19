@@ -23,7 +23,5 @@ If username and password are correct, login is successful.
 If all 3 attempts fail, the account is locked.
 
 ### claims_summary.py
-A claims summary program using a list of dictionaries.  
-It calculates pending claim count and pending claim total amount.
 A dynamic claims summary program using a list of dictionaries.
 It calculates claim count and total amount for each status automatically, such as approved, pending, rejected, and cancelled.
