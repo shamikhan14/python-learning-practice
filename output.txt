@@ -1,2 +1,4 @@
 This is my first program to write a file in python.
 Python file writing is working.
+This line is added using append mode.
+This will append a line
