@@ -1,0 +1,2 @@
+This is my first program to write a file in python.
+Python file writing is working.
